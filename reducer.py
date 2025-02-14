@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from operator import itemgetter
-
+from collections import defaultdict
 
 #========================================================================================
 #  Creating a dictionary to store the count of IP addresses per hour
 #========================================================================================
-ipCount = {}
-
+ipCount = defaultdict(lambda: defaultdict(int))
 
 #========================================================================================
 # Reading input from the mapper and counting the occurrences of each IP address per hour
@@ -29,4 +27,4 @@ for line in sys.stdin:
 for hour in sorted(ipCount.keys()):
     ipSorted = sorted(ipCount[hour].items(), key=lambda x: x[1], reverse=True)[:3] # Sorting in descending order and taking the top 3
     for ip, count in ipSorted:
-        print(f"{hour}:00\t{ip}\t{count}")
+        print(f"{hour}\t{ip}\t{count}")
