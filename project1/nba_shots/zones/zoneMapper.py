@@ -21,11 +21,11 @@ def mapper():
     for row in reader:
         try:
             # Extract relevant fields
-            player_name = row[19]  # Assuming player_name is the 20th column
-            shot_dist = float(row[9])  # Assuming SHOT_DIST is the 10th column
-            close_def_dist = float(row[15])  # Assuming CLOSE_DEF_DIST is the 16th column
-            shot_clock = float(row[8]) if row[8] else 0  # Assuming SHOT_CLOCK is the 9th column (handle missing values)
-            shot_result = 1 if row[13] == 'made' else 0  # Assuming SHOT_RESULT is the 14th column
+            player_name = row[19]  # player_name is the 20th column
+            shot_dist = float(row[9])  # SHOT_DIST is the 10th column
+            close_def_dist = float(row[15])  # CLOSE_DEF_DIST is the 16th column
+            shot_clock = float(row[8]) if row[8] else 0  # SHOT_CLOCK is the 9th column (handle missing values)
+            shot_result = 1 if row[13] == 'made' else 0  # SHOT_RESULT is the 14th column
 
             # Classify the shot into a zone
             zone = classify_zone(shot_dist, close_def_dist, shot_clock)
