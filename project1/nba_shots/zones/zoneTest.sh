@@ -4,6 +4,13 @@ echo "Starting HDFS..."
 start-dfs.sh
 start-yarn.sh
 
+<<<<<<< HEAD
+=======
+echo "Fetching latest Mapper and Reducer from HDFS..."
+hdfs dfs -get /project1/nba_shots/zoneMapper.py .
+hdfs dfs -get /project1/nba_shots/zoneReducer.py .
+
+>>>>>>> e57ef9bad8694eebb8528df2ef150539cc3dac1c
 echo "Ensuring Mapper and Reducer are executable..."
 chmod +x zoneMapper.py zoneReducer.py
 
